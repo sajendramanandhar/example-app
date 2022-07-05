@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Mmo\Faker\LoremSpaceProvider;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -19,6 +20,14 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'image' => 'users/'.
+                $this->faker->loremSpace(
+                    LoremSpaceProvider::CATEGORY_FACE,
+                    'public/storage/users/',
+                    500,
+                    500,
+                    false
+                ),
             'email' => fake()->safeEmail(),
             'email_verified_at' => now(),
             'password' => 'password',
