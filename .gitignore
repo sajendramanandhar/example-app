@@ -13,3 +13,12 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+/public/images/
+/public/assets/images
+/public/assets/admin/images
+/storage/debugbar/
+/nbproject/private
+fresh_installation.sh
+after_installation.sh
+pint.sh
