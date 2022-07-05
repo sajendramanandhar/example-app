@@ -39,4 +39,11 @@ class User extends Authenticatable
     {
         return new Attribute(set: fn ($value) => bcrypt($value));
     }
+
+    public function getImageUrl(): string
+    {
+        return $this->image
+            ? '/storage/'.$this->image
+            : '/images/no-preview-image.png';
+    }
 }
