@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect("/", "/login");
+Route::redirect('/', '/login');
 
-Route::get("/dashboard", function () {
-    return view("dashboard");
+Route::get('/dashboard', function () {
+    return view('dashboard');
 })
-    ->middleware(["auth"])
-    ->name("dashboard");
+    ->middleware(['auth'])
+    ->name('dashboard');
 
-require __DIR__ . "/auth.php";
+require __DIR__.'/auth.php';
