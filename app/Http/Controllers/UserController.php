@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index(): View
     {
         return view('users.index', [
-            'users' => User::paginate(10),
+            'users' => User::latest()->paginate(10),
         ]);
     }
 
@@ -23,7 +23,20 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        //
+        $attributes = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $attributes['image'] = $request
+                ->file('image')
+                ->store('users', 'public');
+        }
+
+        User::create($attributes);
+
+        return to_route('users.create')->with(
+            'status',
+            'User created successfully.'
+        );
     }
 
     public function show(User $user)

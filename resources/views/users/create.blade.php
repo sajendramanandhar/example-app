@@ -6,10 +6,11 @@
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex">
+            <div class="flex justify-center">
                 <div class="w-8/12">
                     <form action="{{ route('users.store') }}"
-                          method="post">
+                          method="post"
+                          enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4">
                             <label
