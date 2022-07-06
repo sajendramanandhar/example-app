@@ -56,4 +56,18 @@ class User extends Authenticatable
     {
         return route('users.update', ['user' => $this]);
     }
+
+    public function getImagePath(): string
+    {
+        return public_path('storage/').$this->image;
+    }
+
+    public static function rules(): array
+    {
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'max:255', 'string', 'email'],
+            'image' => ['nullable', 'image', 'max:15360'],
+        ];
+    }
 }
