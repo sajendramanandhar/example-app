@@ -46,4 +46,14 @@ class User extends Authenticatable
             ? '/storage/'.$this->image
             : '/images/no-preview-image.png';
     }
+
+    public function getEditUrl(): string
+    {
+        return route('users.edit', ['user' => $this]);
+    }
+
+    public function getUpdateUrl(): string
+    {
+        return route('users.update', ['user' => $this]);
+    }
 }

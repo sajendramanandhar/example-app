@@ -52,12 +52,12 @@
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             <a class="mr-4 text-emerald-600 hover:underline"
-                                               href="#">
-                                                edit
+                                               href="{{ $user->getEditUrl() }}">
+                                                Edit
                                             </a>
                                             <a class="text-red-600 hover:underline"
                                                href="#">
-                                                delete
+                                                Delete
                                             </a>
                                         </td>
                                     </tr>
